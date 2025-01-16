@@ -8,7 +8,7 @@ freqs = [0 (1-twid)*band(1) band(1) band(2) (1+twid)*band(2) nyquist ]/nyquist;
 ires = [ 0 0 1 1 0 0 ];
 fweights = firls(filtO,freqs,ires);
 for channel = 1:size(x,2)   % 对于每一个通道
-    oxy_filtered(:,channel) = filtfilt(fweights,1,double(x(:,channel))); %滤波
+    x(:,channel) = filtfilt(fweights,1,double(x(:,channel))); %滤波
 end
 x = x(range(1,1):range(1,2),:);
 for channel1 = 1:size(x,2)
